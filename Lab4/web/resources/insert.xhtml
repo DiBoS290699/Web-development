@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xml:lang="ru" lang="ru"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+    <title>Добавить услугу</title>
+    <link rel="stylesheet" type="text/css" href="styles/insert.css"/>
+</h:head>
+
+<h:body>
+    <h:form>
+        <span>#{visitBean.ID}</span>
+        <h:inputText value="#{visitBean.type}" a:placeholder="Тип услуга" required="true"
+                     requiredMessage="Введите тип услуги" validator="#{visitBean.typeValidator}"/>
+        <h:inputText value="#{visitBean.price}" a:placeholder="Цена услуги" required="true"
+                     requiredMessage="Введите цену услуги" validator="#{visitBean.priceValidator}"/>
+        <h:inputText value="#{visitBean.count}" a:placeholder="Количество" required="true"
+                     requiredMessage="Введите количество услуг" validator="#{visitBean.countValidator}"/>
+        <h:inputText value="#{visitBean.cost}"  a:placeholder="Общая стоимость" required="true"
+                     requiredMessage="Введите общую стоимость" validator="#{visitBean.costValidator}"/>
+        <h:commandButton value="Добавить" action="#{visitBean.addService(customerBean)}" styleClass="btn"/>
+        <h:panelGroup layout="block">
+            <h:messages style="color: red"/>
+        </h:panelGroup>
+    </h:form>
+</h:body>
+
+
+</html>

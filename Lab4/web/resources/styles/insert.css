@@ -1,0 +1,50 @@
+body{
+    background-color: #242424;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,102,121,1) 65%, rgba(0,212,255,1) 100%);
+}
+
+form {
+    border: 2px solid white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-right: 20px;
+    padding-left: 8px;
+    margin: 0 auto;
+    display: block;
+    margin-left: 20%;
+}
+
+span {
+    text-align: center;
+    color: white;
+    font-size: 26px;
+}
+
+span:before{
+    content: "Идентификатор визита: ";
+    margin-left: 5px;
+}
+
+
+input{
+
+    margin-top: 20px;
+    background-color: #fff;
+    margin-left: 10px;
+    border: 2px solid transparent;
+    padding: 4px 8px;
+    border-radius: 10px;
+}
+
+input:focus {
+    border: 2px solid rgb(46,190,89);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 20vh;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core" xml:lang="ru" lang="ru"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>#{customerBean.client.name}</title>
+    <link rel="stylesheet" href="styles/result.css"/>
+</h:head>
+<body>
+<c:if test="#{customerBean.client == null}">
+    <f:metadata>
+        <f:viewAction action="error.xhtml"/>
+    </f:metadata>
+</c:if>
+<header>
+    <div class="container">
+        <div class="title">
+            <h1>Добро пожаловать, #{customerBean.client.name} !</h1>
+        </div>
+    </div>
+</header>
+<div class="container conOne">
+    <h:form>
+        <h:commandLink value="Выйти" action="#{customerBean.logOut}"/>
+    </h:form>
+    <h:form>
+        <h:commandLink value="Скачать XML" action="#{customerBean.downloadXML}"/>
+    </h:form>
+</div>
+<div class="container conTwo">
+    <ui:repeat value="#{customerBean.client.visits}" var="visit">
+        <table>
+            <h:dataTable value="#{visit.services}" var="service">
+                <f:facet name="header">#{visit.id}</f:facet>
+                <h:column>
+                    <f:facet name="header">Тип</f:facet>
+                    #{service.type}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Цена</f:facet>
+                    #{service.price}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Количество</f:facet>
+                    #{service.count}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Стоимость</f:facet>
+                    #{service.cost}
+                </h:column>
+
+                <h:column>
+                    <h:form>
+                        <h:commandButton value="Удалить услугу" action="#{customerBean.deleteService(service.type)}" styleClass="btn" style="background-color: transparent;
+                                                                                                                                    color: black;
+                                                                                                                                    border: 1px solid black;
+                                                                                                                                    padding: 5px 10px;">
+                        </h:commandButton>
+                    </h:form>
+                </h:column>
+            </h:dataTable>
+            <h:form>
+                <h:commandButton value="Добавить услугу" action="#{visitBean.insertService(visit.id)}" styleClass="btn" style="background-color: transparent;
+                                                                                                                                    color: black;
+                                                                                                                                    border: 1px solid black;
+                                                                                                                                    padding: 5px 10px;
+                                                                                                                                    margin-bottom: 15px">
+                </h:commandButton>
+            </h:form>
+        </table>
+    </ui:repeat>
+</div>
+</body>
+
+</html>

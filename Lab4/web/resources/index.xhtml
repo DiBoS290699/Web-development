@@ -1,11 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-   <f:view>
-      <h:outputLabel value="Hello, world"/>
-   </f:view>
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+   <title>Вход</title>
+   <link rel="stylesheet" type="text/css" href="styles/index.css"/>
+</h:head>
+<h:body>
+   <div class="container">
+      <div class="logo">
+         <div class="logo_title">
+            <span>#{customerBean.topLabel}</span>
+         </div>
+      </div>
+      <div class="form_container">
+         <h:form style="text-align: center; ">
+            <div class="inputs_wrapper">
+               <div class="input_field clearfix">
+                  <div class="a">
+                     <h:inputText value="#{customerBean.login}" a:placeholder="Логин" required="true"
+                                  requiredMessage="asdasd"
+                                  style="background-color: #{customerBean.message != 'notfound' ? '#c2c2c2' : '#ffacac'}"/>
+                     <span></span>
+                  </div>
+               </div>
+               <div class="input_field clearfix">
+                  <h:inputSecret value="#{customerBean.password}" id="password" a:placeholder="Пароль" required="true"
+                                 requiredMessage="asda"
+                                 style="background-color: #{customerBean.message != 'notfound' ? '#c2c2c2' : '#ffacac'}"
+                  />
+               </div>
+            </div>
+            <h:commandButton styleClass="buttonEnter" value="Войти" action="#{customerBean.validateClientLogin}"/>
+            <c:if test="#{customerBean.message.equals('notfound')}">
+               <h:outputLabel value="Неверное имя пользователя или пароль" style="color: red; display: block; padding-top: 10px;"/>
+            </c:if>
+            <c:if test="#{customerBean.message.equals('sqlerror')}">
+               <h:outputLabel value="Системная ошибка" style="color: red; display: block; padding-top: 10px;"/>
+            </c:if>
+         </h:form>
+      </div>
+   </div>
+</h:body>
 </html>
