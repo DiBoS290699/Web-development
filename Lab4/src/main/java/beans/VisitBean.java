@@ -10,12 +10,11 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 import java.io.IOException;
-import java.io.Serializable;
 import java.sql.SQLException;
 
 @ManagedBean
 @SessionScoped
-public class VisitBean implements Serializable {
+public class VisitBean {
     private VisitEJB visitEJB = new VisitEJB();
     private int ID;
     private String type;
@@ -63,8 +62,8 @@ public class VisitBean implements Serializable {
         this.cost = cost;
     }
 
-    public void insertService(int id) {
-        this.ID = id;
+    public void insertService(int ID) {
+        this.ID = ID;
         System.out.println(ID);
         try {
             FacesContext.getCurrentInstance().getExternalContext().redirect("insert.xhtml");
@@ -99,7 +98,7 @@ public class VisitBean implements Serializable {
         int toValidate;
         toValidate = Integer.parseInt(o.toString());
         if (toValidate <= 0) {
-            FacesMessage facesMessage = new FacesMessage("Количество должно быть положительным и не равна нулю.");
+            FacesMessage facesMessage = new FacesMessage("Количество должно быть положительным и не равно нулю.");
             throw new ValidatorException(facesMessage);
         }
     }

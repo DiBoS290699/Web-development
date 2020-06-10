@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -17,14 +18,14 @@
 <h:body>
     <h:form>
         <span>#{visitBean.ID}</span>
-        <h:inputText value="#{visitBean.type}" a:placeholder="Тип услуга" required="true"
-                     requiredMessage="Введите тип услуги" validator="#{visitBean.typeValidator}"/>
-        <h:inputText value="#{visitBean.price}" a:placeholder="Цена услуги" required="true"
+        <h:inputText value="#{visitBean.type}" a:placeholder="Название трека" required="true"
+                     requiredMessage="Введите название трека" validator="#{visitBean.typeValidator}"/>
+        <h:inputText value="#{visitBean.price}" a:placeholder="Цена" required="true"
                      requiredMessage="Введите цену услуги" validator="#{visitBean.priceValidator}"/>
-        <h:inputText value="#{visitBean.count}" a:placeholder="Количество" required="true"
+        <h:inputText value="#{visitBean.count}" a:placeholder="Количество услуг" required="true"
                      requiredMessage="Введите количество услуг" validator="#{visitBean.countValidator}"/>
-        <h:inputText value="#{visitBean.cost}"  a:placeholder="Общая стоимость" required="true"
-                     requiredMessage="Введите общую стоимость" validator="#{visitBean.costValidator}"/>
+        <h:inputText value="#{visitBean.cost}"  a:placeholder="Стоимость" required="true"
+                     requiredMessage="Введите стоимость" validator="#{visitBean.costValidator}"/>
         <h:commandButton value="Добавить" action="#{visitBean.addService(customerBean)}" styleClass="btn"/>
         <h:panelGroup layout="block">
             <h:messages style="color: red"/>

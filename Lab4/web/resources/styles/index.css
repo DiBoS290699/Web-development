@@ -91,7 +91,7 @@ input:focus {
     box-shadow: 0 0 0 3px #679afa;
 }
 
-button{
+.buttonEnter{
     display: block;
     margin: 0 auto;
     background-color: rgba(54,84,99,0.7);
@@ -102,7 +102,7 @@ button{
     margin-top: 40px;
 }
 
-button:focus {
+.buttonEnter:focus {
     outline: none;
     box-shadow: 0 0 0 3px #679afa;
 }

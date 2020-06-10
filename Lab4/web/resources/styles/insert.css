@@ -1,7 +1,6 @@
 body{
-    background-color: #242424;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,102,121,1) 65%, rgba(0,212,255,1) 100%);
+    /*background-image: linear-gradient(to bottom, rgb(101, 115, 255), rgb(122, 113, 238), rgb(143, 112, 220), rgb(164, 110, 203), rgb(185, 109, 185), rgb(206, 107, 168), rgb(178, 125, 175), rgb(149, 143, 181), rgb(121, 162, 188), rgb(92, 180, 194), rgb(64, 198, 201), rgb(35, 216, 207));*/
+    background-image: url("../images/XXXL.jpg");
 }
 
 form {

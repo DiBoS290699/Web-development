@@ -76,6 +76,7 @@ public class DataBase {
         state.execute();
         state1.setInt(1, ID);
         state1.setString(2, service.getType());
+        state1.execute();
         connect.close();
     }
 
